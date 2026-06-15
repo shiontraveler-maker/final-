@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHCA — Approved Tax Agent | UAE</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#060e08;color:#e8f5ec;overflow-x:hidden;cursor:none}
+
+:root{
+  --g:#018F54;--gl:#5ECFA0;--gd:#011A10;--gm:#014D2E;
+  --gp:#E0F5EC;--gold:#C9A84C;--gold-l:#FFF8E7;--gold-d:#8B6914;
+}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:12px;height:12px;background:#5ECFA0;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .15s ease,width .2s,height .2s,background .2s}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(94,207,160,.4);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:all .08s ease}
+body:has(a:hover) .cursor,.hover-grow{width:24px;height:24px;background:#02B36A}
+body:has(button:hover) .cursor{width:20px;height:20px}
+@media(hover:none){.cursor,.cursor-ring{display:none}body{cursor:auto}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;mix-blend-mode:normal}
+nav::before{content:'';position:absolute;inset:0;background:rgba(6,14,8,.7);backdrop-filter:blur(12px);border-bottom:1px solid rgba(94,207,160,.08);z-index:-1}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#e8f5ec;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:#02B36A;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:rgba(232,245,236,.5);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:color .3s;cursor:none}
+.nav-links a:hover{color:#5ECFA0}
+.nav-wa{background:transparent;color:#5ECFA0;border:1px solid rgba(94,207,160,.3);padding:8px 18px;border-radius:100px;font-size:13px;font-family:'Inter',sans-serif;cursor:none;transition:all .3s;display:flex;align-items:center;gap:6px}
+.nav-wa:hover{background:rgba(94,207,160,.1);border-color:#5ECFA0}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(1,143,84,.12) 0%,transparent 70%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(94,207,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(94,207,160,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(94,207,160,.25);color:#5ECFA0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:2rem;width:fit-content;animation:fadeUp .8s .2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,8vw,96px);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:1.5rem;overflow:hidden}
+.hero h1 .line{display:block;animation:slideUp .9s cubic-bezier(.16,1,.3,1) both}
+.hero h1 .line:nth-child(1){animation-delay:.1s}
+.hero h1 .line:nth-child(2){animation-delay:.2s;color:#5ECFA0}
+.hero h1 .line:nth-child(3){animation-delay:.3s}
+@keyframes slideUp{from{opacity:0;transform:translateY(110%)}to{opacity:1;transform:translateY(0)}}
+.hero-sub{font-size:clamp(14px,1.6vw,18px);color:rgba(232,245,236,.5);max-width:480px;line-height:1.7;margin-bottom:3rem;animation:fadeUp .8s .5s both}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .8s .65s both}
+.btn-main{background:#02B36A;color:#060e08;border:none;padding:14px 32px;border-radius:100px;font-size:15px;font-family:'Inter',sans-serif;font-weight:600;cursor:none;transition:transform .2s,background .2s;display:flex;align-items:center;gap:8px}
+.btn-main:hover{transform:scale(1.04);background:#5ECFA0}
+.btn-ghost{background:transparent;color:#e8f5ec;border:1px solid rgba(232,245,236,.2);padding:14px 28px;border-radius:100px;font-size:15px;font-family:'Inter',sans-serif;cursor:none;transition:all .2s;display:flex;align-items:center;gap:8px}
+.btn-ghost:hover{border-color:#5ECFA0;color:#5ECFA0}
+.hero-scroll{position:absolute;right:2.5rem;bottom:3rem;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(232,245,236,.3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;animation:fadeUp 1s 1s both}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(94,207,160,.5),transparent);animation:grow 1.5s 1.5s ease both}
+@keyframes grow{from{height:0}to{height:50px}}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;border-top:1px solid rgba(94,207,160,.1);border-bottom:1px solid rgba(94,207,160,.1);padding:1rem 0;background:rgba(1,143,84,.05)}
+.ticker{display:flex;gap:0;white-space:nowrap;animation:ticker 20s linear infinite}
+.ticker:hover{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:1.5rem;padding:0 2rem;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,245,236,.35)}
+.ticker-dot{width:5px;height:5px;border-radius:50%;background:#02B36A;flex-shrink:0}
+.ticker-item.hi{color:#5ECFA0}
+
+/* CERT STRIP */
+.cert-strip{padding:4rem 2.5rem;display:flex;justify-content:center}
+.cert-card{display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(94,207,160,.2);border-radius:16px;padding:1.25rem 2rem;background:rgba(1,143,84,.06);backdrop-filter:blur(10px)}
+.cert-icon{width:52px;height:52px;border-radius:50%;border:1px solid rgba(94,207,160,.3);display:flex;align-items:center;justify-content:center;color:#5ECFA0;font-size:24px}
+.cert-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#e8f5ec}
+.cert-sub{font-size:13px;color:rgba(232,245,236,.5);margin-top:2px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(94,207,160,.08);margin:0 2.5rem;border-radius:16px;overflow:hidden}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:#060e08;padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;transition:background .3s}
+.stat:hover{background:rgba(1,143,84,.08)}
+.stat-num{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:800;color:#02B36A;line-height:1;display:block}
+.stat-lbl{font-size:13px;color:rgba(232,245,236,.4);margin-top:6px;letter-spacing:.04em;text-transform:uppercase}
+
+/* SECTIONS */
+.section{padding:6rem 2.5rem}
+.sec-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#5ECFA0;margin-bottom:1.2rem;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:24px;height:1px;background:#5ECFA0}
+.sec-h{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1rem}
+.sec-sub{font-size:15px;color:rgba(232,245,236,.5);line-height:1.7;margin-bottom:3rem;max-width:520px}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(94,207,160,.08);border-radius:20px;overflow:hidden}
+@media(max-width:480px){.svc-grid{grid-template-columns:1fr 1fr}}
+.svc{background:#060e08;padding:2rem 1.75rem;transition:background .3s;cursor:none;position:relative;overflow:hidden}
+.svc:hover{background:rgba(1,77,46,.3)}
+.svc-glow{position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(2,179,106,.08);top:-60px;right:-40px;transform:scale(0);transition:transform .4s}
+.svc:hover .svc-glow{transform:scale(1)}
+.svc-ico{font-size:28px;color:#02B36A;margin-bottom:1.2rem;display:block}
+.svc-tag{display:inline-block;background:rgba(2,179,106,.15);color:#5ECFA0;font-size:10px;font-weight:600;padding:3px 10px;border-radius:100px;margin-bottom:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.svc h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:.6rem;color:#e8f5ec}
+.svc p{font-size:13px;color:rgba(232,245,236,.45);line-height:1.65}
+.svc-arrow{position:absolute;bottom:1.5rem;right:1.5rem;width:32px;height:32px;border-radius:50%;border:1px solid rgba(94,207,160,.2);display:flex;align-items:center;justify-content:center;color:rgba(94,207,160,.4);font-size:14px;transition:all .3s}
+.svc:hover .svc-arrow{border-color:#5ECFA0;color:#5ECFA0;transform:rotate(45deg)}
+
+/* WHY SECTION */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(94,207,160,.08);border-radius:20px;overflow:hidden}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+.why-card{background:#060e08;padding:2.5rem 2rem;transition:background .3s;cursor:none}
+.why-card:hover{background:rgba(1,77,46,.2)}
+.why-num{font-family:'Syne',sans-serif;font-size:11px;color:rgba(94,207,160,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
+.why-num::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(94,207,160,.3)}
+.why-ico{font-size:24px;color:#5ECFA0;margin-bottom:1rem}
+.why-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#e8f5ec;margin-bottom:.6rem}
+.why-desc{font-size:13px;color:rgba(232,245,236,.45);line-height:1.65}
+
+/* PORTFOLIO */
+.port-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(94,207,160,.08);border-radius:20px;overflow:hidden}
+@media(min-width:640px){.port-grid{grid-template-columns:repeat(3,1fr)}}
+.pcard{background:#060e08;padding:2.5rem 2rem;transition:background .3s;cursor:none;position:relative}
+.pcard:hover{background:rgba(1,77,46,.2)}
+.pcard-gold{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2)}
+.ptag{display:inline-block;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:1.2rem;letter-spacing:.08em;text-transform:uppercase}
+.ptag-g{background:rgba(2,179,106,.15);color:#5ECFA0}
+.ptag-gold{background:rgba(201,168,76,.15);color:#C9A84C;border:1px solid rgba(201,168,76,.25)}
+.pcard h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#e8f5ec;margin-bottom:.6rem}
+.pcard-gold h3{color:#C9A84C}
+.pcard p{font-size:13px;color:rgba(232,245,236,.45);line-height:1.65;margin-bottom:1rem}
+.pres{font-size:13px;color:#5ECFA0;display:flex;align-items:center;gap:6px;font-weight:600}
+.pres-gold{color:#C9A84C}
+.gold-big{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,30px);font-weight:800;color:#C9A84C;display:block;margin:.3rem 0}
+.gold-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,76,.12);color:#C9A84C;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;border:1px solid rgba(201,168,76,.25);letter-spacing:.06em;text-transform:uppercase;margin-top:.5rem}
+
+/* BARS */
+.bars-wrap{background:rgba(1,77,46,.1);border:1px solid rgba(94,207,160,.1);border-radius:20px;padding:2.5rem}
+.bar-row{margin-bottom:1.6rem}
+.bar-top{display:flex;justify-content:space-between;font-size:13px;color:rgba(232,245,236,.6);margin-bottom:.6rem}
+.bar-pct{color:#5ECFA0;font-weight:600}
+.bar-track{height:4px;background:rgba(94,207,160,.1);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#018F54,#5ECFA0);width:0;transition:width 1.6s cubic-bezier(.4,0,.2,1)}
+
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(94,207,160,.08);border-radius:20px;overflow:hidden}
+@media(min-width:640px){.t-grid{grid-template-columns:repeat(3,1fr)}}
+.tc{background:#060e08;padding:2.5rem 2rem;transition:background .3s}
+.tc:hover{background:rgba(1,77,46,.15)}
+.tc-stars{color:#C9A84C;font-size:14px;margin-bottom:1.2rem;letter-spacing:2px}
+.tc-text{font-size:14px;color:rgba(232,245,236,.6);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.tc-auth{display:flex;align-items:center;gap:10px}
+.tc-av{width:36px;height:36px;border-radius:50%;background:rgba(1,143,84,.3);border:1px solid rgba(94,207,160,.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#5ECFA0;flex-shrink:0}
+.tc-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#e8f5ec}
+.tc-role{font-size:11px;color:rgba(232,245,236,.35)}
+
+/* CTA BAND */
+.cta-band{margin:0 2.5rem;border-radius:24px;background:rgba(1,143,84,.12);border:1px solid rgba(94,207,160,.15);padding:5rem 3rem;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(2,179,106,.06);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#5ECFA0;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:10px}
+.cta-label::before,.cta-label::after{content:'';width:24px;height:1px;background:rgba(94,207,160,.4)}
+.cta-h{font-family:'Syne',sans-serif;font-size:clamp(28px,5vw,54px);font-weight:800;letter-spacing:-.03em;line-height:1;margin-bottom:1rem;position:relative}
+.cta-sub{font-size:16px;color:rgba(232,245,236,.5);margin-bottom:2.5rem;position:relative}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* CONTACT */
+.contact-wrap{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start}
+@media(min-width:700px){.contact-wrap{grid-template-columns:1fr 1fr}}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.contact-detail{display:flex;align-items:flex-start;gap:12px;padding:1.25rem;border:1px solid rgba(94,207,160,.1);border-radius:14px;background:rgba(1,77,46,.08);transition:border-color .3s;cursor:none}
+.contact-detail:hover{border-color:rgba(94,207,160,.3)}
+.contact-ico{width:40px;height:40px;border-radius:10px;background:rgba(2,179,106,.15);display:flex;align-items:center;justify-content:center;color:#5ECFA0;font-size:18px;flex-shrink:0}
+.contact-lbl{font-size:11px;color:rgba(232,245,236,.35);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.contact-val{font-size:14px;color:#e8f5ec;font-weight:500}
+.wa-cta{background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);border-radius:14px;padding:1.25rem;display:flex;align-items:center;gap:12px;cursor:none;transition:all .3s}
+.wa-cta:hover{background:rgba(37,211,102,.2);border-color:rgba(37,211,102,.5)}
+.wa-cta-ico{width:44px;height:44px;background:#25D366;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;flex-shrink:0}
+.wa-cta-title{font-size:14px;font-weight:600;color:#e8f5ec}
+.wa-cta-sub{font-size:12px;color:rgba(232,245,236,.4);margin-top:2px}
+.cform{display:flex;flex-direction:column;gap:14px}
+.fg label{display:block;font-size:11px;color:rgba(232,245,236,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(94,207,160,.15);border-radius:10px;padding:12px 14px;font-size:14px;color:#e8f5ec;font-family:'Inter',sans-serif;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:#5ECFA0;background:rgba(94,207,160,.05)}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(232,245,236,.2)}
+.fg textarea{height:90px;resize:vertical}
+.fg select option{background:#060e08;color:#e8f5ec}
+.sbtn{width:100%;background:#02B36A;color:#060e08;border:none;padding:14px;border-radius:100px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:none;transition:transform .2s,background .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.sbtn:hover{background:#5ECFA0;transform:scale(1.02)}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(94,207,160,.08);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#e8f5ec;display:flex;align-items:center;gap:4px}
+.f-cert{background:rgba(37,100,209,.15);color:#93a8f4;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;border:1px solid rgba(147,168,244,.2);letter-spacing:.04em}
+.f-copy{font-size:12px;color:rgba(232,245,236,.25)}
+.f-tag{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:#5ECFA0}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:500;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:none}
+.wa-float-btn{background:#25D366;color:#fff;border:none;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 0 0 0 rgba(37,211,102,.4);animation:waPulse 2.5s infinite}
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.wa-float-label{background:rgba(6,14,8,.9);border:1px solid rgba(94,207,160,.2);color:#5ECFA0;font-size:11px;font-weight:600;padding:5px 14px;border-radius:100px;white-space:nowrap;letter-spacing:.04em;backdrop-filter:blur(8px)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.from-l{transform:translateX(-50px)}
+.reveal.from-r{transform:translateX(50px)}
+.reveal.visible{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:600px){
+  nav{padding:.9rem 1.2rem}
+  .nav-links{display:none}
+  .hero{padding:0 1.2rem 4rem}
+  .section{padding:4rem 1.2rem}
+  .stats{margin:0 1.2rem}
+  .cta-band{margin:0 1.2rem;padding:3rem 1.5rem}
+  footer{padding:1.5rem 1.2rem;flex-direction:column;text-align:center}
+  .cert-strip{padding:2.5rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<nav>
+  <div class="logo">AHCA<div class="logo-dot"></div></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-wa" onclick="window.open('https://wa.me/971545050689')">
+    <i class="ti ti-brand-whatsapp"></i> +971 54 505 0689
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-badge"><i class="ti ti-shield-check"></i> Approved Tax Agent — UAE FTA</div>
+  <h1>
+    <span class="line">Your money</span>
+    <span class="line">works harder.</span>
+    <span class="line">We do the numbers.</span>
+  </h1>
+  <p class="hero-sub">From corporate tax preparation to VAT services and bookkeeping — AHCA is your FTA-approved financial partner across Dubai &amp; Abu Dhabi.</p>
+  <div class="hero-btns">
+    <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <i class="ti ti-calendar"></i> Book free consult
+    </button>
+    <button class="btn-ghost" onclick="window.open('https://wa.me/971545050689')">
+      <i class="ti ti-brand-whatsapp"></i> WhatsApp us
+    </button>
+    <button class="btn-ghost" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">
+      See results <i class="ti ti-arrow-down"></i>
+    </button>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-item hi">AHCA<div class="ticker-dot"></div></div>
+    <div class="ticker-item">UAE FTA Approved Tax Agent<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Corporate Tax Preparation<div class="ticker-dot"></div></div>
+    <div class="ticker-item">VAT Services<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Bookkeeping<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Financial Planning<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Dubai &amp; Abu Dhabi<div class="ticker-dot"></div></div>
+    <div class="ticker-item">AED 100M+ VAT Refund Approved<div class="ticker-dot"></div></div>
+    <div class="ticker-item hi">AHCA<div class="ticker-dot"></div></div>
+    <div class="ticker-item">UAE FTA Approved Tax Agent<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Corporate Tax Preparation<div class="ticker-dot"></div></div>
+    <div class="ticker-item">VAT Services<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Bookkeeping<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Financial Planning<div class="ticker-dot"></div></div>
+    <div class="ticker-item">Dubai &amp; Abu Dhabi<div class="ticker-dot"></div></div>
+    <div class="ticker-item">AED 100M+ VAT Refund Approved<div class="ticker-dot"></div></div>
+  </div>
+</div>
+
+<!-- CERT -->
+<div class="cert-strip">
+  <div class="cert-card reveal">
+    <div class="cert-icon"><i class="ti ti-shield-check"></i></div>
+    <div>
+      <div class="cert-title">Approved Tax Agent</div>
+      <div class="cert-sub">Registered with the UAE Federal Tax Authority (FTA)</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats reveal">
+  <div class="stat"><span class="stat-num" data-val="200">0</span><div class="stat-lbl">Clients +</div></div>
+  <div class="stat"><span class="stat-num" data-val="10">0</span><div class="stat-lbl">Years in UAE</div></div>
+  <div class="stat"><span class="stat-num" data-val="98">0</span><div class="stat-lbl">% Satisfaction</div></div>
+  <div class="stat"><span class="stat-num" data-val="24">0</span><div class="stat-lbl">h Response</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="sec-label reveal">What we do</div>
+  <div class="sec-h reveal">Everything your business needs</div>
+  <p class="sec-sub reveal">From corporate tax filing to VAT registration — AHCA covers it all across the UAE.</p>
+  <div class="svc-grid reveal">
+    <div class="svc">
+      <div class="svc-glow"></div>
+      <span class="svc-tag">Featured</span>
+      <i class="ti ti-building-skyscraper svc-ico"></i>
+      <h3>Corporate tax preparation</h3>
+      <p>Full UAE corporate tax filing, compliance, and planning for businesses of all sizes.</p>
+      <div class="svc-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="svc">
+      <div class="svc-glow"></div>
+      <i class="ti ti-file-invoice svc-ico"></i>
+      <h3>Tax preparation</h3>
+      <p>Business tax filing that maximizes every dirham owed to you — accurate and on time.</p>
+      <div class="svc-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="svc">
+      <div class="svc-glow"></div>
+      <i class="ti ti-receipt-tax svc-ico"></i>
+      <h3>UAE VAT services</h3>
+      <p>Registration, filing, and full FTA compliance — penalty-free, every time.</p>
+      <div class="svc-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="svc">
+      <div class="svc-glow"></div>
+      <i class="ti ti-calculator svc-ico"></i>
+      <h3>Bookkeeping</h3>
+      <p>Clean, audit-ready records every month — zero stress, total accuracy.</p>
+      <div class="svc-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="svc">
+      <div class="svc-glow"></div>
+      <i class="ti ti-chart-pie svc-ico"></i>
+      <h3>Financial planning</h3>
+      <p>Smart strategies to grow your wealth and legally reduce your tax bill.</p>
+      <div class="svc-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="svc">
+      <div class="svc-glow"></div>
+      <i class="ti ti-building svc-ico"></i>
+      <h3>Business advisory</h3>
+      <p>Real advice from real experts. Not a spreadsheet — a strategy.</p>
+      <div class="svc-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why" style="padding-top:0">
+  <div class="sec-label reveal">Why AHCA</div>
+  <div class="sec-h reveal">We're not just accountants.</div>
+  <p class="sec-sub reveal">FTA-approved co-pilots obsessed with finding you every legal advantage.</p>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <i class="ti ti-eye why-ico"></i>
+      <div class="why-title">We spot what others miss</div>
+      <div class="why-desc">Most firms file and forget. We dig deeper to find deductions hiding in plain sight.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <i class="ti ti-message-circle why-ico"></i>
+      <div class="why-title">Clear Arabic &amp; English</div>
+      <div class="why-desc">No jargon. No confusion. Just clear answers you can act on today.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <i class="ti ti-shield-check why-ico"></i>
+      <div class="why-title">FTA approved — always compliant</div>
+      <div class="why-desc">Registered Approved Tax Agents — always protected, never penalised.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <i class="ti ti-rocket why-ico"></i>
+      <div class="why-title">Built for growth</div>
+      <div class="why-desc">Freelancer or 50-person company — AHCA scales with your ambition.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BARS -->
+<section class="section" style="padding-top:0">
+  <div class="sec-label reveal">Expertise</div>
+  <div class="sec-h reveal">Our skill areas</div>
+  <div class="bars-wrap reveal">
+    <div class="bar-row"><div class="bar-top"><span>Corporate tax preparation</span><span class="bar-pct">97%</span></div><div class="bar-track"><div class="bar-fill" data-w="97%"></div></div></div>
+    <div class="bar-row"><div class="bar-top"><span>UAE VAT &amp; FTA compliance</span><span class="bar-pct">96%</span></div><div class="bar-track"><div class="bar-fill" data-w="96%"></div></div></div>
+    <div class="bar-row"><div class="bar-top"><span>Bookkeeping &amp; payroll</span><span class="bar-pct">98%</span></div><div class="bar-track"><div class="bar-fill" data-w="98%"></div></div></div>
+    <div class="bar-row"><div class="bar-top"><span>Financial reporting &amp; audit</span><span class="bar-pct">93%</span></div><div class="bar-track"><div class="bar-fill" data-w="93%"></div></div></div>
+    <div class="bar-row" style="margin-bottom:0"><div class="bar-top"><span>Business advisory</span><span class="bar-pct">90%</span></div><div class="bar-track"><div class="bar-fill" data-w="90%"></div></div></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="results" style="padding-top:0">
+  <div class="sec-label reveal">Real results</div>
+  <div class="sec-h reveal">Numbers don't lie.</div>
+  <p class="sec-sub reveal">Wins delivered for UAE businesses just like yours.</p>
+  <div class="port-grid reveal">
+    <div class="pcard">
+      <span class="ptag ptag-g">Corporate</span>
+      <h3>Corporate tax filing</h3>
+      <p>End-to-end corporate tax preparation for a UAE trading company — on time, fully compliant.</p>
+      <div class="pres"><i class="ti ti-check"></i> Zero penalties, 100% FTA compliant</div>
+    </div>
+    <div class="pcard pcard-gold">
+      <span class="ptag ptag-gold"><i class="ti ti-star"></i> Major win</span>
+      <h3>VAT refund claim</h3>
+      <p>Large-scale VAT refund prepared and submitted — approved by the FTA.</p>
+      <div class="pres pres-gold"><i class="ti ti-coin"></i> Refund requested:</div>
+      <span class="gold-big">AED 100,000,000+</span>
+      <div class="gold-badge"><i class="ti ti-shield-check"></i> FTA refund approved</div>
+    </div>
+    <div class="pcard">
+      <span class="ptag ptag-g">Tech startup</span>
+      <h3>Launch-ready finances</h3>
+      <p>VAT registration, payroll setup, and investor-ready reports from day one.</p>
+      <div class="pres"><i class="ti ti-rocket"></i> Funded within 6 months</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="padding-top:0">
+  <div class="sec-label reveal">Client love</div>
+  <div class="sec-h reveal">Don't take our word for it.</div>
+  <div class="t-grid reveal">
+    <div class="tc">
+      <div class="tc-stars">★★★★★</div>
+      <p class="tc-text">"AHCA handled our corporate tax perfectly — fully compliant and stress-free from start to finish."</p>
+      <div class="tc-auth"><div class="tc-av">AK</div><div><div class="tc-name">Ahmed K.</div><div class="tc-role">Business owner, Abu Dhabi</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tc-stars">★★★★★</div>
+      <p class="tc-text">"I used to dread tax season. Now I look forward to seeing what AHCA saves me each year."</p>
+      <div class="tc-auth"><div class="tc-av">SR</div><div><div class="tc-name">Sara R.</div><div class="tc-role">Designer, Dubai</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tc-stars">★★★★★</div>
+      <p class="tc-text">"Our investors loved how clean our books were. AHCA made us look serious from day one."</p>
+      <div class="tc-auth"><div class="tc-av">MJ</div><div><div class="tc-name">Mark J.</div><div class="tc-role">Startup founder, Abu Dhabi</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal" style="margin-bottom:3rem">
+  <div class="cta-glow"></div>
+  <div class="cta-label">FTA Approved · Trusted · Ready</div>
+  <div class="cta-h">Let's take control<br>of your finances.</div>
+  <p class="cta-sub">Corporate tax. VAT. Accounting. All under one roof.</p>
+  <div class="cta-btns">
+    <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <i class="ti ti-calendar"></i> Book free call
+    </button>
+    <button class="btn-ghost" onclick="window.open('https://wa.me/971545050689')">
+      <i class="ti ti-brand-whatsapp"></i> WhatsApp now
+    </button>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="sec-label reveal">Get in touch</div>
+  <div class="sec-h reveal">Let's talk numbers.</div>
+  <p class="sec-sub reveal">Free 30-min consultation with an FTA-approved tax agent — no obligation.</p>
+  <div class="contact-wrap reveal">
+    <div class="contact-info">
+      <div class="wa-cta" onclick="window.open('https://wa.me/971545050689')">
+        <div class="wa-cta-ico"><i class="ti ti-brand-whatsapp"></i></div>
+        <div>
+          <div class="wa-cta-title">Message us on WhatsApp</div>
+          <div class="wa-cta-sub">Usually replies within minutes</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-ico"><i class="ti ti-phone"></i></div>
+        <div><div class="contact-lbl">Phone / WhatsApp</div><div class="contact-val">+971 54 505 0689</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-ico"><i class="ti ti-mail"></i></div>
+        <div><div class="contact-lbl">Email</div><div class="contact-val">abdelfattah@ahca.ae</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-ico"><i class="ti ti-map-pin"></i></div>
+        <div><div class="contact-lbl">Location</div><div class="contact-val">Dubai &amp; Abu Dhabi, UAE</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-ico"><i class="ti ti-shield-check"></i></div>
+        <div><div class="contact-lbl">Certification</div><div class="contact-val">FTA Approved Tax Agent</div></div>
+      </div>
+    </div>
+    <div class="cform">
+      <div class="fg"><label>Your name</label><input type="text" placeholder="e.g. Ahmed Al Mansoori"/></div>
+      <div class="fg"><label>Email address</label><input type="email" placeholder="you@example.com"/></div>
+      <div class="fg"><label>Phone number</label><input type="tel" placeholder="+971 54 505 0689"/></div>
+      <div class="fg">
+        <label>Service needed</label>
+        <select>
+          <option>Corporate tax preparation</option>
+          <option>Tax preparation</option>
+          <option>UAE VAT registration &amp; filing</option>
+          <option>Bookkeeping</option>
+          <option>Financial planning</option>
+          <option>Business advisory</option>
+          <option>Payroll setup</option>
+        </select>
+      </div>
+      <div class="fg"><label>Tell us about your business</label><textarea placeholder="What's your biggest financial challenge right now?"></textarea></div>
+      <button class="sbtn">Send message — it's free <i class="ti ti-send"></i></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">AHCA<span style="color:#02B36A">.</span></span>
+  <span class="f-cert"><i class="ti ti-shield-check"></i> FTA Approved Tax Agent</span>
+  <span class="f-copy">Dubai &amp; Abu Dhabi, UAE · abdelfattah@ahca.ae · +971 54 505 0689</span>
+  <span class="f-copy">&copy; 2026 AHCA. All rights reserved.</span>
+  <span class="f-tag">Your money. Our mission.</span>
+</footer>
+
+<div class="wa-float">
+  <div class="wa-float-label">Chat with us!</div>
+  <button class="wa-float-btn" onclick="window.open('https://wa.me/971545050689')" aria-label="WhatsApp">
+    <i class="ti ti-brand-whatsapp"></i>
+  </button>
+</div>
+
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+setInterval(()=>{rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px'},16);
+
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('visible');
+    e.target.querySelectorAll('.bar-fill').forEach(b=>{setTimeout(()=>{b.style.width=b.dataset.w},300)});
+    e.target.querySelectorAll('.stat-num').forEach(el=>{
+      const target=parseInt(el.dataset.val);let cur=0;
+      const step=()=>{cur+=Math.ceil(target/40);if(cur>=target){el.textContent=target;return}el.textContent=cur;requestAnimationFrame(step)};
+      setTimeout(step,200);
+    });
+    io.unobserve(e.target);
+  });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
